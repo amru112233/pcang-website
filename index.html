@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171b1e">
+  <meta name="description" content="P&Cang membantu perusahaan konstruksi mengubah proyek, keahlian, dan portofolio menjadi digital presence yang membangun kredibilitas dan membuka peluang bisnis.">
+  <title>P&Cang — Dari Sipil untuk Sipil</title>
+  <style>
+    :root {
+      --ink: #171b1e;
+      --ink-2: #242a2e;
+      --muted: #647078;
+      --paper: #f5f4f0;
+      --white: #fffefa;
+      --line: #deded7;
+      --orange: #f36b3f;
+      --orange-dark: #d94f27;
+      --lime: #d6ed79;
+      --radius: 18px;
+      --shadow: 0 24px 60px rgba(23, 27, 30, .11);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: .75rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--orange); display: inline-block; }
+    .section { padding: 100px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 { font-size: clamp(2rem, 4.3vw, 3.6rem); line-height: 1.05; letter-spacing: -.055em; margin: 16px 0; font-weight: 800; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 1.04rem; max-width: 620px; }
+    .accent { color: var(--orange); }
+    .button { border: 1px solid transparent; border-radius: 999px; display: inline-flex; gap: 12px; justify-content: center; align-items: center; padding: 13px 20px; font-size: .92rem; font-weight: 750; cursor: pointer; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--orange); color: white; }
+    .button-primary:hover { background: var(--orange-dark); }
+    .button-dark { background: var(--ink); color: white; }
+    .button-dark:hover { background: #343b40; }
+    .button-outline { border-color: rgba(255,255,255,.35); color: white; background: transparent; }
+    .button-outline:hover { background: rgba(255,255,255,.08); }
+    .button-light-outline { border-color: #c8ccc7; color: var(--ink); background: transparent; }
+    .arrow { font-size: 1.1em; line-height: 1; }
+
+    /* Navigation */
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(23,27,30,.94); color: white; backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.35rem; font-weight: 900; letter-spacing: -.06em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px 10px 10px 3px; color: var(--ink); background: var(--orange); font-size: 1rem; font-weight: 950; letter-spacing: -.08em; }
+    .brand small { display: block; color: #abb3b7; font-size: .57rem; letter-spacing: .12em; line-height: 1; margin-top: 1px; font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-size: .86rem; color: #d6dadd; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--lime); }
+    .nav .button { padding: 10px 16px; font-size: .83rem; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.2); background: transparent; color: white; border-radius: 10px; width: 42px; height: 42px; font-size: 1.3rem; }
+
+    /* Hero */
+    .hero { color: white; background: var(--ink); position: relative; isolation: isolate; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .23; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, black, transparent 90%); }
+    .hero::after { content: ""; position: absolute; width: 520px; height: 520px; border: 1px solid rgba(243,107,63,.35); border-radius: 50%; right: -130px; top: -155px; z-index: -1; box-shadow: 0 0 0 42px rgba(243,107,63,.035), 0 0 0 88px rgba(243,107,63,.025); }
+    .hero-grid { min-height: 640px; display: grid; grid-template-columns: 1.07fr .93fr; gap: 40px; align-items: center; padding-top: 64px; padding-bottom: 74px; }
+    .hero-copy { max-width: 690px; position: relative; z-index: 1; }
+    .hero .eyebrow { color: #d8dfe1; }
+    .hero .eyebrow::before { background: var(--lime); }
+    .hero h1 { font-size: clamp(3.2rem, 6.3vw, 5.8rem); line-height: .97; letter-spacing: -.075em; margin: 24px 0 26px; font-weight: 850; }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero-copy > p { max-width: 570px; font-size: 1.08rem; color: #c0c8cb; margin: 0 0 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 34px; color: #aab4b8; font-size: .81rem; }
+    .hero-note .dot { width: 8px; height: 8px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 0 5px rgba(214,237,121,.1); }
+    .hero-visual { min-height: 470px; position: relative; display: grid; place-items: center; }
+    .blueprint { position: absolute; inset: 15px 0 12px 2px; border: 1px solid rgba(255,255,255,.17); border-radius: 16px; background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.012)); overflow: hidden; }
+    .blueprint-label { position: absolute; left: 20px; top: 18px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: #a9b6ba; }
+    .blueprint svg { position: absolute; inset: 48px 10px 8px; width: calc(100% - 20px); height: calc(100% - 56px); }
+    .floating-card { position: absolute; background: var(--white); color: var(--ink); border-radius: 14px; padding: 15px 17px; box-shadow: 0 18px 45px rgba(0,0,0,.2); }
+    .floating-card .mini-label { font-size: .63rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: #758087; }
+    .floating-card strong { display: block; font-size: 1rem; margin-top: 4px; letter-spacing: -.03em; }
+    .floating-card span { color: #637078; font-size: .74rem; }
+    .card-top { top: 44px; right: -12px; transform: rotate(2deg); }
+    .card-bottom { left: -26px; bottom: 36px; min-width: 205px; transform: rotate(-2deg); }
+    .pill-row { display: flex; gap: 5px; margin-top: 10px; }
+    .pill-row i { display: block; width: 30px; height: 5px; background: #e4e5df; border-radius: 8px; }
+    .pill-row i:first-child { background: var(--orange); width: 46px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(255,255,255,.13); padding-top: 22px; margin-top: 48px; gap: 15px; max-width: 640px; }
+    .hero-stats strong { display: block; font-size: .97rem; }
+    .hero-stats span { color: #9da8ad; display: block; font-size: .76rem; margin-top: 3px; }
+
+    /* Intro strip */
+    .audience-strip { background: var(--orange); color: var(--ink); }
+    .audience-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; }
+    .audience-inner strong { font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
+    .audience-list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .audience-list span { border: 1px solid rgba(23,27,30,.27); border-radius: 999px; padding: 6px 12px; font-size: .75rem; font-weight: 700; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 90px; align-items: start; }
+    .about-statement { font-size: clamp(2.2rem, 4vw, 4.1rem); line-height: 1.02; letter-spacing: -.065em; font-weight: 800; margin: 20px 0 0; }
+    .about-statement span { color: var(--orange); }
+    .about-copy { padding-top: 10px; }
+    .about-copy p { color: #566168; font-size: 1.05rem; margin: 0 0 18px; }
+    .principles { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 30px; }
+    .principle { border-top: 2px solid var(--ink); padding-top: 13px; }
+    .principle strong { display: block; font-size: .98rem; }
+    .principle span { display: block; font-size: .78rem; line-height: 1.5; color: var(--muted); margin-top: 5px; }
+
+    /* Services */
+    .services-section { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .service-card { border: 1px solid var(--line); background: #fff; border-radius: var(--radius); padding: 26px 24px 25px; min-height: 255px; transition: transform .22s, box-shadow .22s, border-color .22s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: #c6c8bf; }
+    .service-icon { width: 47px; height: 47px; display: grid; place-items: center; background: #fff0e8; color: var(--orange-dark); border-radius: 14px; margin-bottom: 25px; }
+    .service-icon svg { width: 24px; height: 24px; }
+    .service-card h3 { margin: 0 0 9px; font-size: 1.17rem; letter-spacing: -.035em; }
+    .service-card p { color: var(--muted); font-size: .91rem; margin: 0; }
+    .service-number { float: right; color: #a6adae; font-size: .76rem; font-weight: 800; letter-spacing: .1em; }
+    .service-footnote { margin: 24px 0 0; color: var(--muted); font-size: .85rem; }
+
+    /* Difference */
+    .difference-section { background: #e9e9e2; overflow: hidden; }
+    .difference-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+    .example-panel { padding: 30px; border-radius: var(--radius); min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; }
+    .example-panel.general { color: #d4dadc; background: #30383c; }
+    .example-panel.pcang { color: white; background: var(--ink); border: 1px solid var(--orange); position: relative; }
+    .panel-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 850; }
+    .general .panel-label { color: #9ea8ad; }
+    .pcang .panel-label { color: var(--orange); }
+    .example-quote { font-size: clamp(1.45rem, 2.6vw, 2.25rem); line-height: 1.12; letter-spacing: -.05em; font-weight: 750; margin: 25px 0; max-width: 440px; }
+    .example-panel p { font-size: .87rem; color: #9aa5a9; margin: 0; }
+    .pcang p { color: #b5c0c3; }
+    .example-tag { display: inline-flex; width: fit-content; background: var(--lime); color: var(--ink); border-radius: 999px; padding: 7px 11px; font-size: .69rem; text-transform: uppercase; font-weight: 850; letter-spacing: .06em; }
+    .difference-bottom { margin-top: 30px; display: flex; gap: 22px; align-items: center; justify-content: space-between; }
+    .difference-bottom p { color: #566168; margin: 0; max-width: 660px; }
+
+    /* Work examples */
+    .work-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 16px; }
+    .work-card { min-width: 0; }
+    .work-art { min-height: 245px; border-radius: 16px; position: relative; overflow: hidden; margin-bottom: 18px; }
+    .work-card:first-child .work-art { min-height: 360px; }
+    .art-site { background: #d7d7ce; padding: 22px; }
+    .art-site::before { content: ""; position: absolute; inset: 0; background: linear-gradient(140deg, transparent 42%, rgba(23,27,30,.1) 42.2%, transparent 42.8%), repeating-linear-gradient(0deg, transparent 0 32px, rgba(23,27,30,.07) 33px 34px), repeating-linear-gradient(90deg, transparent 0 32px, rgba(23,27,30,.07) 33px 34px); }
+    .site-blocks { position: absolute; inset: 48px 34px 30px; display: grid; grid-template-columns: 1fr .7fr 1.1fr; grid-template-rows: 1fr .8fr; gap: 10px; transform: rotate(-5deg); }
+    .site-blocks span { display: block; background: #f9f8f2; border: 2px solid #818983; box-shadow: 4px 4px 0 rgba(23,27,30,.15); }
+    .site-blocks span:nth-child(2) { background: var(--orange); }
+    .site-blocks span:nth-child(3) { grid-row: span 2; background: #3b4747; }
+    .site-blocks span:nth-child(4) { background: #dce6ac; }
+    .art-content { background: var(--orange); padding: 24px; color: var(--ink); }
+    .art-content .big-type { font-size: clamp(2.2rem,4vw,3.7rem); font-weight: 950; line-height: .88; letter-spacing: -.08em; margin-top: 35px; }
+    .art-content .small-type { font-weight: 800; letter-spacing: .1em; font-size: .7rem; text-transform: uppercase; margin-top: 18px; }
+    .art-content .bars { margin-top: 22px; display: flex; gap: 5px; }
+    .art-content .bars i { height: 6px; width: 35px; border-radius: 5px; background: rgba(23,27,30,.25); }
+    .art-content .bars i:first-child { background: var(--ink); width: 56px; }
+    .art-dashboard { background: #20272b; padding: 22px; color: white; }
+    .dashboard-window { border: 1px solid rgba(255,255,255,.16); border-radius: 10px; height: 100%; padding: 13px; background: rgba(255,255,255,.035); }
+    .dashboard-top { display: flex; justify-content: space-between; align-items: center; font-size: .66rem; color: #cbd4d6; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.13); }
+    .dashboard-top b { color: var(--orange); letter-spacing: .05em; }
+    .dashboard-chart { height: 95px; display: flex; align-items: end; gap: 8px; padding: 12px 4px 0; }
+    .dashboard-chart i { display: block; flex: 1; border-radius: 4px 4px 0 0; background: #536166; }
+    .dashboard-chart i:nth-child(1) { height: 40%; }
+    .dashboard-chart i:nth-child(2) { height: 58%; background: var(--orange); }
+    .dashboard-chart i:nth-child(3) { height: 47%; }
+    .dashboard-chart i:nth-child(4) { height: 76%; background: var(--lime); }
+    .dashboard-chart i:nth-child(5) { height: 65%; }
+    .dashboard-chart i:nth-child(6) { height: 90%; background: var(--orange); }
+    .dashboard-lines { margin-top: 13px; display: grid; gap: 7px; }
+    .dashboard-lines i { display: block; height: 5px; border-radius: 8px; background: rgba(255,255,255,.13); }
+    .dashboard-lines i:nth-child(2) { width: 72%; }
+    .work-card h3 { font-size: 1.12rem; margin: 0 0 7px; letter-spacing: -.03em; }
+    .work-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .sample-notice { display: inline-flex; gap: 8px; align-items: center; margin-top: 30px; border: 1px solid #d0d2ca; border-radius: 10px; padding: 10px 13px; color: #636e70; font-size: .78rem; }
+    .sample-notice strong { color: var(--ink); }
+
+    /* Process */
+    .process-section { background: var(--ink); color: white; }
+    .process-section .section-head p { color: #aeb9bd; }
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid rgba(255,255,255,.19); }
+    .process-step { padding: 26px 24px 0 0; position: relative; }
+    .process-step + .process-step { border-left: 1px solid rgba(255,255,255,.14); padding-left: 24px; }
+    .process-step .step-number { color: var(--orange); font-size: .75rem; font-weight: 850; letter-spacing: .15em; }
+    .process-step h3 { font-size: 1.25rem; letter-spacing: -.04em; margin: 24px 0 10px; }
+    .process-step p { margin: 0; color: #aeb9bd; font-size: .88rem; }
+
+    /* CTA / Contact */
+    .contact-section { background: var(--white); }
+    .contact-box { display: grid; grid-template-columns: 1fr .9fr; gap: 54px; border-radius: 24px; padding: clamp(28px, 5vw, 58px); background: #ecece5; }
+    .contact-copy h2 { font-size: clamp(2.2rem, 4.5vw, 4rem); line-height: .99; letter-spacing: -.07em; margin: 17px 0 18px; }
+    .contact-copy p { color: #5c676c; max-width: 480px; }
+    .contact-benefits { display: grid; gap: 12px; margin-top: 28px; }
+    .contact-benefits span { display: flex; align-items: center; gap: 10px; font-size: .88rem; font-weight: 650; }
+    .check { display: grid; place-items: center; width: 23px; height: 23px; background: var(--lime); border-radius: 50%; color: var(--ink); font-size: .78rem; font-weight: 900; flex: 0 0 auto; }
+    .contact-form { background: var(--white); border: 1px solid #e0e1d9; border-radius: 18px; padding: 25px; box-shadow: 0 12px 36px rgba(23,27,30,.04); }
+    .contact-form h3 { font-size: 1.18rem; letter-spacing: -.035em; margin: 0 0 7px; }
+    .form-intro { font-size: .83rem; color: var(--muted); margin: 0 0 20px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: .77rem; font-weight: 800; margin-bottom: 6px; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #d8dcd8; border-radius: 10px; padding: 12px 13px; color: var(--ink); background: #fff; outline: none; transition: border-color .18s, box-shadow .18s; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(243,107,63,.12); }
+    .field textarea { min-height: 92px; resize: vertical; }
+    .contact-form .button { width: 100%; }
+    .form-message { display: none; margin: 13px 0 0; padding: 11px 12px; border-radius: 10px; background: #f2f5e5; color: #3f4b24; font-size: .8rem; }
+    .form-message.show { display: block; }
+    .form-disclaimer { color: #899195; font-size: .7rem; margin-top: 12px; }
+    footer { background: var(--ink); color: white; padding: 35px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .footer-note { color: #9da8ad; font-size: .78rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; color: #c8d0d2; font-size: .8rem; }
+    .footer-links a:hover { color: var(--lime); }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr .82fr; gap: 15px; }
+      .hero h1 { font-size: clamp(3rem, 6.8vw, 5rem); }
+      .hero-visual { min-height: 400px; }
+      .card-top { right: -5px; }
+      .card-bottom { left: -10px; }
+      .about-grid { gap: 42px; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .work-card:first-child { grid-row: span 2; }
+      .work-card:first-child .work-art { min-height: 320px; }
+      .contact-box { gap: 28px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 34px)); }
+      .section { padding: 72px 0; }
+      .nav { height: 68px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 68px; padding: 18px 24px 24px; flex-direction: column; align-items: stretch; gap: 0; background: #202629; border-top: 1px solid rgba(255,255,255,.1); box-shadow: 0 18px 25px rgba(0,0,0,.18); }
+      .nav-links.open { display: flex; }
+      .nav-links a:not(.button) { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+      .nav-links .button { margin-top: 14px; }
+      .hero-grid { display: flex; flex-direction: column; align-items: stretch; padding-top: 58px; padding-bottom: 48px; gap: 25px; }
+      .hero h1 { font-size: clamp(3.2rem, 14vw, 5.2rem); }
+      .hero-copy > p { font-size: 1rem; }
+      .hero-visual { min-height: 390px; margin: 0 8px; }
+      .blueprint { inset: 8px 3px; }
+      .card-top { right: -10px; top: 24px; }
+      .card-bottom { left: -9px; bottom: 17px; }
+      .hero-stats { margin-top: 35px; }
+      .hero-stats strong { font-size: .83rem; }
+      .hero-stats span { font-size: .7rem; }
+      .audience-inner { display: block; padding: 18px 0; }
+      .audience-list { justify-content: flex-start; margin-top: 12px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-statement { max-width: 550px; }
+      .principles { grid-template-columns: 1fr; gap: 18px; }
+      .principle { display: grid; grid-template-columns: 130px 1fr; gap: 10px; }
+      .principle span { margin-top: 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; padding: 23px; }
+      .service-icon { margin-bottom: 18px; }
+      .difference-grid { grid-template-columns: 1fr; }
+      .example-panel { min-height: 280px; padding: 24px; }
+      .difference-bottom { align-items: flex-start; flex-direction: column; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card:first-child { grid-row: auto; }
+      .work-card:first-child .work-art, .work-art { min-height: 280px; }
+      .process-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+      .process-step { padding: 0 18px 0 0; }
+      .process-step + .process-step { border-left: 0; padding-left: 0; }
+      .process-step:nth-child(even) { border-left: 1px solid rgba(255,255,255,.14); padding-left: 18px; }
+      .process-step h3 { margin-top: 14px; }
+      .contact-box { grid-template-columns: 1fr; padding: 25px 18px; }
+      .contact-form { padding: 20px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="P&Cang beranda">
+        <span class="brand-mark">P&amp;</span>
+        <span>P&amp;Cang<small>DARI SIPIL UNTUK SIPIL</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#tentang">Tentang</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#pendekatan">Pendekatan</a>
+        <a href="#contoh">Contoh karya</a>
+        <a class="button button-primary" href="#kontak">Diskusikan proyek <span class="arrow">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Dari sipil untuk sipil</span>
+          <h1>Proyek hebat.<br><em>Cerita yang</em><br>sampai.</h1>
+          <p>Kami membantu perusahaan konstruksi mengubah proyek, keahlian, dan pengalaman menjadi digital presence yang membangun kredibilitas serta membuka peluang bisnis.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#layanan">Jelajahi layanan <span class="arrow">↘</span></a>
+            <a class="button button-outline" href="#kontak">Minta social media audit</a>
+          </div>
+          <div class="hero-note"><span class="dot"></span> Digital marketing yang memahami dunia konstruksi.</div>
+          <div class="hero-stats">
+            <div><strong>Technical</strong><span>Berangkat dari substansi</span></div>
+            <div><strong>Commercial</strong><span>Menonjolkan nilai bisnis</span></div>
+            <div><strong>Engaging</strong><span>Mudah dipahami audiens</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Ilustrasi digital dan teknik konstruksi">
+          <div class="blueprint">
+            <div class="blueprint-label">Project / Digital Presence — PC.01</div>
+            <svg viewBox="0 0 500 430" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g stroke="#9AB1B5" stroke-opacity=".35" stroke-width="1">
+                <path d="M10 60H480M10 120H480M10 180H480M10 240H480M10 300H480M10 360H480"/>
+                <path d="M60 10V415M120 10V415M180 10V415M240 10V415M300 10V415M360 10V415M420 10V415"/>
+              </g>
+              <g stroke="#F36B3F" stroke-width="2.5" stroke-linejoin="round">
+                <path d="M82 333V170L170 122L258 170V333"/>
+                <path d="M82 170L170 219L258 170M170 219V385"/>
+                <path d="M82 224L170 274L258 224M82 278L170 328L258 278" stroke-opacity=".65"/>
+                <path d="M170 122V70L258 118V170" stroke-dasharray="5 6"/>
+                <path d="M258 170L337 126L418 171V331L337 376L258 331"/>
+                <path d="M337 126V376M258 224L337 270L418 224M258 278L337 324L418 278" stroke-opacity=".65"/>
+              </g>
+              <g stroke="#D6ED79" stroke-width="1.5" stroke-dasharray="5 5" stroke-opacity=".9">
+                <path d="M50 350H450M170 55V400"/>
+                <path d="M67 350V363M153 350V363M187 350V363M323 350V363M351 350V363"/>
+              </g>
+              <g fill="#D6ED79" font-family="monospace" font-size="11" letter-spacing="1"><text x="25" y="342">GRID A</text><text x="180" y="48">SECTION B-B</text><text x="350" y="405">DETAIL 01</text></g>
+              <g fill="#F36B3F"><circle cx="170" cy="219" r="5"/><circle cx="337" cy="270" r="5"/></g>
+            </svg>
+          </div>
+          <div class="floating-card card-top"><span class="mini-label">Brand clarity</span><strong>Proyek jadi cerita.</strong><span>Komunikasi yang punya arah.</span></div>
+          <div class="floating-card card-bottom"><span class="mini-label">Content framework</span><strong>Build. Explain. Connect.</strong><div class="pill-row"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="audience-strip">
+      <div class="container audience-inner">
+        <strong>Dirancang untuk industri konstruksi</strong>
+        <div class="audience-list"><span>Kontraktor</span><span>Konsultan teknik</span><span>Developer</span><span>Supplier &amp; vendor</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="tentang">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">Tentang P&amp;Cang</span>
+          <h2 class="about-statement">Keahlian teknikmu punya nilai. <span>Buat dunia melihatnya.</span></h2>
+        </div>
+        <div class="about-copy">
+          <p>P&amp;Cang adalah gagasan agensi social media dan digital marketing yang berfokus pada industri teknik sipil, konstruksi, dan properti.</p>
+          <p>Terinspirasi dari pancang yang membantu menyalurkan beban struktur ke tanah, P&amp;Cang ingin menjadi fondasi bagi perusahaan untuk menyampaikan keunggulan mereka kepada calon pelanggan melalui kanal digital.</p>
+          <p>Alih-alih hanya memublikasikan dokumentasi proyek, kami mengemasnya menjadi komunikasi yang menunjukkan kemampuan teknis, nilai komersial, dan cerita di balik pekerjaan.</p>
+          <div class="principles">
+            <div class="principle"><strong>Build credibility</strong><span>Membangun citra profesional dan tepercaya.</span></div>
+            <div class="principle"><strong>Build awareness</strong><span>Menjangkau calon pelanggan dan mitra.</span></div>
+            <div class="principle"><strong>Generate leads</strong><span>Mendorong audiens untuk bertanya dan menghubungi.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Apa yang kami kerjakan</span>
+          <h2>Konten yang bukan cuma <span class="accent">terlihat bagus.</span></h2>
+          <p>Setiap layanan dirancang untuk membantu perusahaan konstruksi menyampaikan kompetensi, memperkuat kehadiran digital, dan mendukung proses pemasaran B2B.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01 / STRATEGY</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 8h10M7 12h5M7 16h8"/></svg></div>
+            <h3>Social Media Management</h3>
+            <p>Perencanaan konten, kalender publikasi, dan pengelolaan kanal yang konsisten dengan karakter perusahaan.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 / CONTENT</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+            <h3>Content Production</h3>
+            <p>Konten visual, video pendek, dan infografik yang membuat proyek maupun informasi teknis lebih mudah dipahami.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 / PORTFOLIO</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V5a2 2 0 0 1 2-2h9l5 5v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M14 3v6h6M8 13h8M8 17h8"/></svg></div>
+            <h3>Digital Project Portfolio</h3>
+            <p>Mengemas dokumentasi pekerjaan, pengalaman, dan kapabilitas menjadi portofolio digital yang lebih terstruktur.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">04 / BRANDING</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.6 5.3L20 9l-4 4 .9 5.7L12 16l-4.9 2.7L8 13l-4-4 5.4-.7L12 3Z"/></svg></div>
+            <h3>Branding &amp; Campaign</h3>
+            <p>Menyusun pesan, gaya visual, dan kampanye yang membuat keunggulan perusahaan lebih mudah dikenali.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">05 / GROWTH</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 6-7"/><path d="M15 6h5v5"/></svg></div>
+            <h3>Digital Lead Generation</h3>
+            <p>Mengarahkan perjalanan audiens dari melihat dan berinteraksi hingga bertanya atau menghubungi perusahaan.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">06 / CONSULTING</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 0 1 6 0c0 2-3 2-3 4M12 17h.01"/></svg></div>
+            <h3>Marketing Consultation</h3>
+            <p>Diskusi awal untuk memetakan peluang komunikasi digital dan kebutuhan pemasaran perusahaan.</p>
+          </article>
+        </div>
+        <p class="service-footnote">Ruang lingkup dan biaya layanan disesuaikan dengan kebutuhan serta kondisi bisnis calon klien.</p>
+      </div>
+    </section>
+
+    <section class="section difference-section" id="pendekatan">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Cara kami berbeda</span>
+          <h2>Kami memahami <span class="accent">yang dibangun</span>, bukan hanya yang diposting.</h2>
+          <p>Pengetahuan teknik sipil membantu kami menyampaikan cerita proyek secara lebih relevan—tanpa kehilangan substansi teknisnya.</p>
+        </div>
+        <div class="difference-grid">
+          <article class="example-panel general">
+            <span class="panel-label">Pendekatan umum</span>
+            <div class="example-quote">“Progres pembangunan proyek kami terus berjalan.”</div>
+            <p>Memberi informasi bahwa aktivitas proyek berlangsung.</p>
+          </article>
+          <article class="example-panel pcang">
+            <span class="panel-label">Pendekatan P&amp;Cang</span>
+            <div class="example-quote">“Kenapa tulangan kolom harus memiliki panjang penyaluran tertentu?”</div>
+            <p>Mengubah dokumentasi pembesian menjadi cerita yang menjelaskan detail konstruksi sekaligus menunjukkan kompetensi tim.</p>
+            <span class="example-tag">Technical + Commercial + Engaging</span>
+          </article>
+        </div>
+        <div class="difference-bottom">
+          <p>Tujuannya bukan sekadar mengejar likes dan followers, melainkan membangun kredibilitas, memperjelas nilai perusahaan, dan mendukung peluang bisnis.</p>
+          <a class="button button-dark" href="#kontak">Bicarakan kebutuhanmu <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contoh">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contoh konsep karya</span>
+          <h2>Dokumentasi proyek, diolah jadi <span class="accent">cerita bernilai.</span></h2>
+          <p>Berikut contoh arah kreatif yang dapat dikembangkan untuk perusahaan konstruksi. Materi ini merupakan simulasi konsep, bukan portofolio klien yang sudah dikerjakan.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="work-art art-site" aria-label="Ilustrasi abstrak layout proyek konstruksi">
+              <div class="site-blocks"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <h3>01. Project Story</h3>
+            <p>Menampilkan tahapan, tantangan, dan perkembangan proyek sebagai cerita visual yang terstruktur.</p>
+          </article>
+          <article class="work-card">
+            <div class="work-art art-content" aria-label="Contoh layout konten edukasi teknik">
+              <div class="small-type">Field notes / 001</div>
+              <div class="big-type">DETAIL<br>MATTERS.</div>
+              <div class="small-type">Construction explained</div>
+              <div class="bars"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <h3>02. Technical Explainer</h3>
+            <p>Infografik atau video singkat yang menerjemahkan detail teknis menjadi informasi yang mudah dicerna.</p>
+          </article>
+          <article class="work-card">
+            <div class="work-art art-dashboard" aria-label="Ilustrasi dashboard ringkasan digital presence">
+              <div class="dashboard-window">
+                <div class="dashboard-top"><b>P&amp;CANG / INSIGHT</b><span>OVERVIEW</span></div>
+                <div class="dashboard-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="dashboard-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <h3>03. Digital Presence</h3>
+            <p>Merancang tampilan informasi dan portofolio agar perusahaan lebih mudah dikenali secara digital.</p>
+          </article>
+        </div>
+        <div class="sample-notice"><span>✳</span><span><strong>Catatan transparansi:</strong> ilustrasi di atas hanya contoh arah desain; bukan hasil kerja klien aktual.</span></div>
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Dari diskusi ke kolaborasi</span>
+          <h2>Mulai dari memahami kebutuhan. <span class="accent">Lalu bergerak.</span></h2>
+          <p>Alur awal yang direncanakan P&amp;Cang untuk mengenali kebutuhan calon klien dan merancang kerja sama yang sesuai.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step"><span class="step-number">STEP 01</span><h3>Audit awal</h3><p>Melihat kanal digital dan mengidentifikasi peluang perbaikan yang relevan.</p></article>
+          <article class="process-step"><span class="step-number">STEP 02</span><h3>Diskusi kebutuhan</h3><p>Memahami karakter bisnis, target pelanggan, proyek, dan tujuan komunikasi.</p></article>
+          <article class="process-step"><span class="step-number">STEP 03</span><h3>Usulan solusi</h3><p>Menyusun ruang lingkup layanan dan usulan kerja yang sesuai dengan kebutuhan.</p></article>
+          <article class="process-step"><span class="step-number">STEP 04</span><h3>Evaluasi &amp; lanjut</h3><p>Mengevaluasi hasil uji coba dan mendiskusikan kerja sama berkelanjutan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontak">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-copy">
+            <span class="eyebrow">Mari mulai percakapan</span>
+            <h2>Sudah punya proyek. Sekarang, <span class="accent">ceritakan nilainya.</span></h2>
+            <p>Ceritakan kebutuhan digital perusahaanmu. Kita bisa mulai dari audit sederhana untuk mencari peluang yang paling relevan.</p>
+            <div class="contact-benefits">
+              <span><i class="check">✓</i> Petakan kondisi digital saat ini</span>
+              <span><i class="check">✓</i> Temukan peluang dari dokumentasi proyek</span>
+              <span><i class="check">✓</i> Diskusikan opsi layanan yang sesuai</span>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <h3>Ajukan diskusi awal</h3>
+            <p class="form-intro">Isi informasi berikut agar kebutuhanmu lebih mudah dipahami.</p>
+            <div class="field"><label for="name">Nama</label><input id="name" name="name" autocomplete="name" placeholder="Nama kamu" required></div>
+            <div class="field"><label for="company">Nama perusahaan</label><input id="company" name="company" autocomplete="organization" placeholder="Nama perusahaan" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nama@perusahaan.com" required></div>
+            <div class="field"><label for="service">Kebutuhan utama</label><select id="service" name="service" required><option value="" selected disabled>Pilih layanan yang ingin didiskusikan</option><option>Social media management</option><option>Content production</option><option>Digital project portfolio</option><option>Branding &amp; campaign</option><option>Digital lead generation</option><option>Masih ingin konsultasi</option></select></div>
+            <div class="field"><label for="message">Ceritakan kebutuhanmu (opsional)</label><textarea id="message" name="message" placeholder="Contoh: kami ingin merapikan media sosial dan portofolio proyek..."></textarea></div>
+            <button class="button button-primary" type="submit">Siapkan ringkasan permintaan <span class="arrow">↗</span></button>
+            <div class="form-message" id="formMessage" role="status"></div>
+            <p class="form-disclaimer">Formulir ini masih berupa demo front-end dan belum mengirim data ke email atau server.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark">P&amp;</span><span>P&amp;Cang<small>DARI SIPIL UNTUK SIPIL</small></span></a>
+      <div class="footer-note">© <span id="year"></span> P&amp;Cang. Konsep website untuk proyek kewirausahaan.</div>
+      <div class="footer-links"><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a><a href="#kontak">Kontak</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+      const data = new FormData(contactForm);
+      const summary = [
+        'RINGKASAN PERMINTAAN — P&Cang',
+        `Nama: ${data.get('name')}`,
+        `Perusahaan: ${data.get('company')}`,
+        `Email: ${data.get('email')}`,
+        `Kebutuhan: ${data.get('service')}`,
+        `Catatan: ${data.get('message') || '-'}`
+      ].join('\n');
+      const blob = new Blob([summary], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const download = document.createElement('a');
+      download.href = url;
+      download.download = 'ringkasan-permintaan-pcang.txt';
+      document.body.appendChild(download);
+      download.click();
+      download.remove();
+      URL.revokeObjectURL(url);
+      formMessage.textContent = 'Ringkasan permintaan berhasil dibuat dan diunduh sebagai file teks. Formulir ini belum mengirim data ke P&Cang; hubungkan ke email/server sebelum website dipublikasikan untuk penggunaan nyata.';
+      formMessage.classList.add('show');
+    });
+  </script>
+</body>
+</html>
