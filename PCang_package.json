@@ -1,0 +1,9 @@
+{
+  "name": "pcang-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "P&Cang static HTML website for construction-focused digital marketing services",
+  "scripts": {
+    "build": "echo Static HTML site - no build step required"
+  }
+}
